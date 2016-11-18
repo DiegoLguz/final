@@ -14,7 +14,7 @@ def nuevo(request):
         instance = form.save(commit=False)
         instance.user = request.user
         instance.save()
-        return HttpResponseRedirect(reverse('login')) 
+        return HttpResponseRedirect(reverse('lista')) 
     context = {
         "form": form,
     }
@@ -37,12 +37,9 @@ def prestamo(request):
     form = PrestamoForm(request.POST)
     if form.is_valid():
         instance = form.save(commit=False)
-        libro = LIbros.objects.create(Usuario =formulario.cleaned_data['User'], Libro = formulario.cleaned_data['Libro'])
-        for libro_id in request.POST.getlist('Libro'):
-            prestamo = Prestamo(libro_id=libro_id, usuario_id=usuario.id)
-            prestamo.save()
         instance.user = request.user
         instance.save()
+        return HttpResponseRedirect(reverse('lista')) 
     else:
         form2 = LibrosForm()
 
