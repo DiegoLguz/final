@@ -1,0 +1,41 @@
+{% extends "base.html"%}
+{% block content%}
+<head>
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase|Jockey+One|Stardos+Stencil" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Nova+Round" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Ceviche+One|Marcellus+SC|New+Rocker|UnifrakturMaguntia" rel="stylesheet"> 
+    
+</head>
+  <body style="background-color:#fffbef">
+      
+        <nav class="navbar navbar-inverse" role="navigation">{% csrf_token %}
+          <ul class="nav navbar-nav"  style="padding-left:5px">
+              <li class="active" style="padding-right:5px;padding-top:5px;padding-bottom:5px"><a href="http://127.0.0.1:8000/nuevo/"><p style="color:white;text-align:right" id="cont">&nbsp;+ Libro</p></a></li>
+              <li class="active " style="padding-right:5px;padding-top:5px;padding-bottom:5px" ><a href="http://127.0.0.1:8000/usuario/"><p style="color:white;text-align:right" id="cont">&nbsp;+ Usuario</p></a></li>
+              <li class="active " style="padding-top:5px;padding-bottom:5px" ><a href="http://127.0.0.1:8000/prestamo/"><p style="color:white;text-align:right" id="cont">&nbsp;+ Prestamo</p></a></li>
+              
+              
+          </ul>
+
+      </nav>
+
+<div class='col-sm-16 col-sm-offset-1.5' style="background-color:#000000">
+    {% for obj in object_list %}
+
+<div class="row" style="background-color:#262626">
+  <div class="col-sm-12" >
+    <div class="thumbnail">
+      <!--<img src="..." alt="...">-->
+        <small id='usr' style="color:black; font-size:25">{{obj.user}}  <p id='usr' style="align:right;font-size:20px; color:gray">{{obj.created_date}}</p></small>
+          <h2 id='cont' style="font-size:45px; color:#5b0000" >{{obj.titulo}}</h2>
+          <h2 id='cont' style="font-size:35px" > {{obj.Editorial}}  </h2>
+         <h2 id='cont' style="font-size:35px" >{{obj.Pais}} | {{obj.Anio}} </h2>
+       
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+</body>
+{% endblock content%}

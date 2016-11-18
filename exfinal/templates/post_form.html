@@ -1,0 +1,45 @@
+{%extends "base.html"%}
+
+
+{% block content%} 
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase|Jockey+One|Stardos+Stencil" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Ceviche+One|Marcellus+SC|New+Rocker|UnifrakturMaguntia" rel="stylesheet"> 
+</head>
+  <body style="background-color:#3d3d3d">
+       <nav class="navbar navbar-inverse" role="navigation">{% csrf_token %}
+          <ul class="nav navbar-nav"  style="padding-left:5px">
+              <li class="active" style="padding-right:5px;padding-top:5px;padding-bottom:5px"><a href="http://127.0.0.1:8000/nuevo/"><p style="color:white;text-align:right" id="cont">&nbsp;+ Libro</p></a></li>
+              <li class="active " style="padding-right:5px;padding-top:5px;padding-bottom:5px" ><a href="http://127.0.0.1:8000/usuario/"><p style="color:white;text-align:right" id="cont">&nbsp;+ Usuario</p></a></li>
+              <li class="active " style="padding-top:5px;padding-bottom:5px" ><a href="http://127.0.0.1:8000/prestamo/"><p style="color:white;text-align:right" id="cont">&nbsp;+ Prestamo</p></a></li>
+              
+              
+          </ul>
+
+      </nav>
+<div class='page-header'>
+    <h1 id='cont'>Nuevo</h1>
+</div>
+<div class='col-sm-22 col-sm-offset-0'>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="thumbnail">
+          <!--<img src="..." alt="...">-->
+          <div class="caption">
+              <div id="cont">
+               <form  method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
+                <p> Ejemplo para ingreso de fechas "2016-11-18"</p>
+            {{form.as_p}}
+           <p> <input  type='submit' class='btn btn-Default' value ='Guardar'/>
+          <input  class='btn btn-Default' href="http://127.0.0.1:8000/" value ='Inicio'></p>
+                   
+        </form> 
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
+{% endblock content%}
