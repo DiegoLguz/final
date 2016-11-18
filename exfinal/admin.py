@@ -14,8 +14,8 @@ class LibroModelAdmin(admin.ModelAdmin):
         model = Libros
         
 class UsuarioModelAdmin(admin.ModelAdmin):
-    list_display= ["Nombre_Completo","Dpi","Libros"]
-    list_display_links = ["Dpi","Libros"]
+    list_display= ["Nombre_Completo","Dpi"]
+    list_display_links = ["Dpi"]
     list_filter = ["Dpi"]
     list_editable = ["Nombre_Completo"]
     search_fields = ["Dpi"]

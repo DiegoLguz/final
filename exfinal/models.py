@@ -33,8 +33,7 @@ class Libros(models.Model):
 
 class Usuario(models.Model):
     Nombre_Completo = models.CharField(max_length=200)
-    Dpi = models.CharField(max_length=13)    
-    Libros   =models.ForeignKey(Libros)
+    Dpi = models.CharField(max_length=13) 
     
     def __unicode__(self):
         return self.Nombre_Completo
